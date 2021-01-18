@@ -1,7 +1,7 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  title: 'rc-darkreader',
+  title: 'use-typical',
   logo: 'https://darkreader.org/images/darkreader-icon-256x256.png',
   favicon: 'https://darkreader.org/images/darkreader-icon-256x256.png',
   hash: true,
@@ -9,7 +9,7 @@ export default defineConfig({
   base: `/`,
   publicPath: '/',
   theme: {
-    '@c-primary': '#2c89a0',
+    '@c-primary': '#EF4444',
   },
   headScripts: [
     `window.onload = () => {
@@ -18,6 +18,16 @@ export default defineConfig({
   ],
   styles: [
     `https://cdn.jsdelivr.net/npm/antd@4.10.0/dist/antd.min.css`,
+    `/** Typical Blink Effect **/
+    .typingWrapper::after {
+      content: "|";
+      animation: blink 1s infinite step-start;
+    }
+    
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    `,
     `/** Logo Style **/
     .__dumi-default-menu-header .__dumi-default-menu-logo{
       background: none !important;
@@ -27,7 +37,7 @@ export default defineConfig({
       height: 64px;
       position: relative;
       perspective: 50000px;
-      color: #2c89a0;
+      color: #EF4444;
     }
     .circles span {
       position: absolute;

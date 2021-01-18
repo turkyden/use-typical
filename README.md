@@ -1,63 +1,67 @@
 # Getting Started
 
-🌓 A React Hook for adding a dark / night mode to your site inspired by [darkreader](https://github.com/darkreader/darkreader)
+Animated typing in ~2.6 kb 🐡 with React Hook.
 
 [![npm](https://img.shields.io/npm/v/react-darkreader?color=orange)](https://www.npmjs.com/package/react-image-dangling) ![npm](https://img.shields.io/npm/dt/react-darkreader) [![dumi](https://img.shields.io/badge/docs%20by-dumi-blue)](https://github.com/umijs/dumi) ![License](https://img.shields.io/github/license/Turkyden/react-darkreader) [![jsdelivr](https://data.jsdelivr.com/v1/package/npm/react-darkreader/badge)](https://www.jsdelivr.com/package/npm/react-darkreader)
 
 Live Demo ✨ [https://react-darkreader.vercel.app](https://react-darkreader.vercel.app)
 
-![darkreader](https://darkreader.org/images/darkreader-icon-256x256.png)
+<!-- ![darkreader](https://darkreader.org/images/darkreader-icon-256x256.png) -->
 
 ## 📦 Install
 
 ```bash
-yarn add react-darkreader
+yarn add use-typical
 ```
 
 Or you can:
 
 ```bash
-npm install react-darkreader
+npm install use-typical
 ```
 
 ## 🚀 Usage
 
-You can import the darkmode as a react component.
+You can create typing animate effects by the react hook `useTypical`
 
 ```tsx | pure
 import React from 'react';
-import Darkreader from 'react-darkreader';
-
-export default () => <Darkreader />;
-```
-
-You can also create darkmode by the react hook `useDarkreader`
-
-```tsx | pure
-import React from 'react';
-import { Switch, useDarkreader } from 'react-darkreader';
+import useTypical from 'use-typical';
 
 export default () => {
-  const [isDark, toggle] = useDarkreader(false);
+  const ref = useTypical({
+    steps: ['Hello', 1000, 'Hello world!', 500],
+    loop: Infinity,
+    speed: 60,
+  });
 
-  return <Switch isDark={isDark} onToggle={toggle} />;
+  return <p ref={ref}></p>;
 };
 ```
 
-## 📔 API
+To display the blink effects, you can add the classname `typingWrapper` on the dom.
 
-### Component
-
-```tsx | pure
-<Darkreader
-  defaultDarken
-  options={
-    brightness: 100,
-    contrast: 90,
-    sepia: 10
-  }
-/>
+```diff
+-<p ref={ref}></p>
++<p ref={ref} className="typingWrapper"></p>
 ```
+
+Such as a blink cursor style like this.
+
+```css
+.typingWrapper::after {
+  content: '|';
+  animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+```
+
+## 📔 API
 
 ### Hook
 

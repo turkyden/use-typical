@@ -1,37 +1,44 @@
-## Switch
+## Vertical
 
-Defaultly, you can define your toggler ui with `<Switch>`.
+RL with `vertical-rl`
 
 ```tsx
 import React from 'react';
-import { Switch, useDarkreader } from 'react-darkreader';
+import useTypical from 'use-typical';
 
-export default () => {
-  const [isDark, toggle] = useDarkreader(false);
-
-  return <Switch isDark={isDark} onToggle={toggle} />;
+const ChineseTypingStyle = {
+  fontSize: '2rem',
+  height: '20rem',
+  display: 'flex',
+  justifyContent: 'flex-end',
+  width: '80%',
+  margin: 'auto',
 };
-```
-
-Or you can import the switch trigger from [Ant Design](https://ant.design/components/switch-cn/)
-
-```tsx
-import React from 'react';
-import { useDarkreader } from 'react-darkreader';
-import { Switch } from 'antd';
 
 export default () => {
-  const [isDark, toggle] = useDarkreader(false);
+  const ref = useTypical({
+    steps: [
+      '天行健，',
+      1000,
+      '天行健，君子以自强不息；',
+      500,
+      '天行健，君子以自强不息；地势坤，',
+      1000,
+      '天行健，君子以自强不息；地势坤，君子以厚德载物。',
+      500,
+    ],
+    loop: 4,
+    speed: 200,
+  });
 
   return (
-    <>
-      <Switch checked={isDark} onChange={toggle} />
-      <br />
-      <br />
-      <Switch checked={isDark} onChange={toggle} size="small" />
-    </>
+    <div style={ChineseTypingStyle}>
+      <p
+        ref={ref}
+        style={{ writingMode: 'vertical-rl' }}
+        className="typingWrapper"
+      />
+    </div>
   );
 };
 ```
-
-More skills for writing demo: https://d.umijs.org/guide/demo-principle

@@ -1,14 +1,28 @@
-## defaultDarken
+## Blink Effect
 
-You can set the defaultDarken properties to control status at first time.
+You can import to your app with default export.
 
 ```tsx
+/**
+ * background: '#374151'
+ */
+
 import React from 'react';
-import Darkreader from 'react-darkreader';
+import useTypical from 'use-typical';
 
 export default () => {
-  return <Darkreader defaultDarken />;
+  const ref = useTypical({
+    steps: ['Hello', 1000, 'Hello World !', 500],
+    loop: Infinity,
+    speed: 60,
+  });
+
+  return (
+    <p
+      ref={ref}
+      className="typingWrapper"
+      style={{ textAlign: 'center', color: '#fff', fontSize: '2rem' }}
+    />
+  );
 };
 ```
-
-The darkmode is destroyed with the React Component when `unmount`.

@@ -1,5 +1,3 @@
-import Darkreader from './Darkreader';
+import useTypical from './useTypical';
 
-export { default as Switch } from './Switch';
-export { default as useDarkreader } from './useDarkreader';
-export default Darkreader;
+export default useTypical;
