@@ -2,9 +2,9 @@
 
 Animated typing in ~2.6 kb 🐡 with React Hook.
 
-[![npm](https://img.shields.io/npm/v/react-darkreader?color=orange)](https://www.npmjs.com/package/react-image-dangling) ![npm](https://img.shields.io/npm/dt/react-darkreader) [![dumi](https://img.shields.io/badge/docs%20by-dumi-blue)](https://github.com/umijs/dumi) ![License](https://img.shields.io/github/license/Turkyden/react-darkreader) [![jsdelivr](https://data.jsdelivr.com/v1/package/npm/react-darkreader/badge)](https://www.jsdelivr.com/package/npm/react-darkreader)
+[![npm](https://img.shields.io/npm/v/use-typical?color=orange)](https://www.npmjs.com/package/react-image-dangling) ![npm](https://img.shields.io/npm/dt/use-typical) [![dumi](https://img.shields.io/badge/docs%20by-dumi-blue)](https://github.com/umijs/dumi) ![License](https://img.shields.io/github/license/Turkyden/use-typical) [![jsdelivr](https://data.jsdelivr.com/v1/package/npm/use-typical/badge)](https://www.jsdelivr.com/package/npm/use-typical)
 
-Live Demo ✨ [https://react-darkreader.vercel.app](https://react-darkreader.vercel.app)
+Live Demo ✨ [https://use-typical.vercel.app](https://use-typical.vercel.app)
 
 <!-- ![darkreader](https://darkreader.org/images/darkreader-icon-256x256.png) -->
 
@@ -66,42 +66,22 @@ Such as a blink cursor style like this.
 ### Hook
 
 ```typescript | pure
-const [isDark, toggle, collectCSS] = useDarkreader(defaultDarken: boolean, options?: Options);
-```
-
-with a toggle button as ui.
-
-```tsx | pure
-<Switch isDark={isDark} onToggle={toggle} />
+const ref = useTypical(options: Options);
 ```
 
 ### Result
 
-| Params     | Description                                             | Type                          |
-| ---------- | ------------------------------------------------------- | ----------------------------- |
-| isDark     | The status of current darkmode, support `true`, `false` | `boolean`                     |
-| toggle     | The function for toggling the darkmode.                 | `() => void`                  |
-| collectCSS | The async function for collecting the css of darkmode.  | `async () => Promise<string>` |
-
-### Params
-
-| Params        | Description                          | Type      | Default |
-| ------------- | ------------------------------------ | --------- | ------- |
-| defaultDarken | The default status of the darkreader | `boolean` | false   |
+| Params | Description                    | Type                            |
+| ------ | ------------------------------ | ------------------------------- |
+| ref    | The ref of typical text wraper | `React.RefObject<HTMLDocument>` |
 
 ### Options
 
-| Params     | Description                           | Type     | Default |
-| ---------- | ------------------------------------- | -------- | ------- |
-| brightness | The brightness properties of darkmode | `number` | 100     |
-| contrast   | The contrast properties of darkmode   | `number` | 90      |
-| sepia      | The sepia properties of darkmode      | `number` | 10      |
-
-## 🔢 Coming Soon
-
-- [ ] followSystemColorScheme
-- [ ] localstorge
-- [ ] playground for editing the config online
+| Params | Description                                              | Type                              | Default |
+| ------ | -------------------------------------------------------- | --------------------------------- | ------- |
+| steps  | Step array assign to the typing                          | `Array<string, number, Function>` | -       |
+| loop   | The number of loop typing animation effect, **Infinity** | `number`                          | 1       |
+| speed  | The speed of typing animation effect                     | `number`                          | 60      |
 
 ## 🔨 Contribute
 
@@ -131,4 +111,4 @@ $ npm run build
 
 ## License
 
-[MIT](https://github.com/Turkyden/react-darkreader/blob/main/LICENSE)
+[MIT](https://github.com/Turkyden/use-typical/blob/main/LICENSE)

@@ -1,6 +1,6 @@
-## Blink Effect
+## Blink Effect ✨
 
-You can import to your app with default export.
+Display the blink animation effects. 👉 <span class="typingWrapper"></span>
 
 ```tsx
 /**
@@ -25,4 +25,26 @@ export default () => {
     />
   );
 };
+```
+
+You can add the classname `typingWrapper` on the dom.
+
+```diff
+-<p ref={ref}></p>
++<p ref={ref} className="typingWrapper"></p>
+```
+
+Such as a blink cursor style like this.
+
+```css | pure
+.typingWrapper::after {
+  content: '|';
+  animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 ```

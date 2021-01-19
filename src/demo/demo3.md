@@ -1,27 +1,28 @@
-## Chinese
+## Emoji 😎
 
-You can import to your app with default export.
+You can typing the emoji as a text. https://emoji.muan.co/
 
 ```tsx
+/**
+ * background: '#374151'
+ */
+
 import React from 'react';
 import useTypical from 'use-typical';
 
 export default () => {
   const ref = useTypical({
-    steps: [
-      '天行健，',
-      1000,
-      '天行健，君子以自强不息；',
-      500,
-      '天行健，君子以自强不息；地势坤，',
-      1000,
-      '天行健，君子以自强不息；地势坤，君子以厚德载物。',
-      500,
-    ],
-    loop: 4,
-    speed: 200,
+    steps: ['Hello', 1000, 'Hello World ! 👋', 500],
+    loop: Infinity,
+    speed: 60,
   });
 
-  return <p ref={ref}></p>;
+  return (
+    <p
+      ref={ref}
+      className="typingWrapper"
+      style={{ textAlign: 'center', color: '#fff', fontSize: '2rem' }}
+    />
+  );
 };
 ```

@@ -1,6 +1,6 @@
 ## Default
 
-You can import to your app with default export.
+You can typing the text animation step by step.
 
 ```tsx
 import React from 'react';
@@ -13,6 +13,6 @@ export default () => {
     speed: 60,
   });
 
-  return <p ref={ref}></p>;
+  return <h2 ref={ref}></h2>;
 };
 ```

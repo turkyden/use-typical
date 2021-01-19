@@ -1,19 +1,10 @@
-## Vertical
+## Chinese 🀄
 
-RL with `vertical-rl`
+You can typing the chinese characters with use-typical.
 
 ```tsx
 import React from 'react';
 import useTypical from 'use-typical';
-
-const ChineseTypingStyle = {
-  fontSize: '2rem',
-  height: '20rem',
-  display: 'flex',
-  justifyContent: 'flex-end',
-  width: '80%',
-  margin: 'auto',
-};
 
 export default () => {
   const ref = useTypical({
@@ -31,14 +22,6 @@ export default () => {
     speed: 200,
   });
 
-  return (
-    <div style={ChineseTypingStyle}>
-      <p
-        ref={ref}
-        style={{ writingMode: 'vertical-rl' }}
-        className="typingWrapper"
-      />
-    </div>
-  );
+  return <p ref={ref}></p>;
 };
 ```
